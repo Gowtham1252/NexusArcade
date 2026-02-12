@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS ARCADE - Ultimate Gaming Hub</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="bg-animation">
+        <div class="grid-lines"></div>
+        <div class="particles"></div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-gamepad"></i>
+                <span class="logo-text">NEXUS<span class="accent">ARCADE</span></span>
+            </div>
+            <nav class="nav">
+                <button class="nav-btn active" data-view="home">
+                    <i class="fas fa-home"></i> Home
+                </button>
+                <button class="nav-btn" data-view="favorites">
+                    <i class="fas fa-star"></i> Favorites
+                </button>
+                <button class="nav-btn" data-view="leaderboard">
+                    <i class="fas fa-trophy"></i> Leaderboard
+                </button>
+            </nav>
+            <div class="user-profile" id="userProfile">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <span class="user-name" id="userName">Guest</span>
+                <button class="login-btn" id="loginBtn" onclick="showAuthModal('login')">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+                <button class="logout-btn" id="logoutBtn" onclick="handleLogout()" style="display: none;">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="view active" id="home-view">
+                <div class="hero-section">
+                    <h1 class="hero-title">Welcome to the <span class="gradient-text">Future of Gaming</span></h1>
+                    <p class="hero-subtitle">Explore our collection of classic and modern games</p>
+                </div>
+
+                <section class="games-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-fire"></i> Featured Games
+                    </h2>
+                    <div class="games-grid">
+                        <div class="game-card" data-game="snake">
+                            <div class="game-card-inner">
+                                <div class="game-icon snake-icon">
+                                    <i class="fas fa-dragon"></i>
+                                </div>
+                                <h3 class="game-title">Snake Classic</h3>
+                                <p class="game-description">Navigate the serpent and grow</p>
+                                <div class="game-stats">
+                                    <span><i class="fas fa-clock"></i> 5-15 min</span>
+                                    <span><i class="fas fa-signal"></i> Easy</span>
+                                </div>
+                                <button class="play-btn" onclick="openGame('snake')">
+                                    <i class="fas fa-play"></i> Play Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="game-card" data-game="memory">
+                            <div class="game-card-inner">
+                                <div class="game-icon memory-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <h3 class="game-title">Memory Master</h3>
+                                <p class="game-description">Match pairs and test memory</p>
+                                <div class="game-stats">
+                                    <span><i class="fas fa-clock"></i> 3-10 min</span>
+                                    <span><i class="fas fa-signal"></i> Medium</span>
+                                </div>
+                                <button class="play-btn" onclick="openGame('memory')">
+                                    <i class="fas fa-play"></i> Play Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="game-card" data-game="2048">
+                            <div class="game-card-inner">
+                                <div class="game-icon puzzle-icon">
+                                    <i class="fas fa-puzzle-piece"></i>
+                                </div>
+                                <h3 class="game-title">2048 Challenge</h3>
+                                <p class="game-description">Merge tiles to reach 2048</p>
+                                <div class="game-stats">
+                                    <span><i class="fas fa-clock"></i> 10-20 min</span>
+                                    <span><i class="fas fa-signal"></i> Hard</span>
+                                </div>
+                                <button class="play-btn" onclick="openGame('2048')">
+                                    <i class="fas fa-play"></i> Play Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="game-card" data-game="tictactoe">
+                            <div class="game-card-inner">
+                                <div class="game-icon strategy-icon">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                <h3 class="game-title">Tic Tac Toe</h3>
+                                <p class="game-description">Classic strategy game</p>
+                                <div class="game-stats">
+                                    <span><i class="fas fa-clock"></i> 1-5 min</span>
+                                    <span><i class="fas fa-signal"></i> Easy</span>
+                                </div>
+                                <button class="play-btn" onclick="openGame('tictactoe')">
+                                    <i class="fas fa-play"></i> Play Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="game-card" data-game="colormatch">
+                            <div class="game-card-inner">
+                                <div class="game-icon color-icon">
+                                    <i class="fas fa-palette"></i>
+                                </div>
+                                <h3 class="game-title">Color Matcher</h3>
+                                <p class="game-description">Quick reflexes required</p>
+                                <div class="game-stats">
+                                    <span><i class="fas fa-clock"></i> 2-8 min</span>
+                                    <span><i class="fas fa-signal"></i> Medium</span>
+                                </div>
+                                <button class="play-btn" onclick="openGame('colormatch')">
+                                    <i class="fas fa-play"></i> Play Now
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="game-card" data-game="breakout">
+                            <div class="game-card-inner">
+                                <div class="game-icon arcade-icon">
+                                    <i class="fas fa-circle"></i>
+                                </div>
+                                <h3 class="game-title">Breakout Arcade</h3>
+                                <p class="game-description">Break all the bricks</p>
+                                <div class="game-stats">
+                                    <span><i class="fas fa-clock"></i> 5-15 min</span>
+                                    <span><i class="fas fa-signal"></i> Medium</span>
+                                </div>
+                                <button class="play-btn" onclick="openGame('breakout')">
+                                    <i class="fas fa-play"></i> Play Now
+                                </button>
+                            </div>
+                        </div>
+                        <div class="game-card" data-game="reflex">
+                            <div class="game-card-inner">
+                                <div class="game-icon arcade-icon">
+                                    <i class="fas fa-hand"></i>
+                                </div>
+                                <h3 class="game-title">Reflex Clicker</h3>
+                                <p class="game-description">Let's test your reflexes !</p>
+                                <div class="game-stats">
+                                    <span><i class="fas fa-clock"></i>1 min</span>
+                                    <span><i class="fas fa-signal"></i> Medium</span>
+                                </div>
+                                <button class="play-btn" onclick="openGame('reflex')">
+                                    <i class="fas fa-play"></i> Play Now
+                                </button>
+                            </div>
+                        </div>
+                        <div class="game-card" data-game="spaceDodger">
+                            <div class="game-card-inner">
+                                <div class="game-icon arcade-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <h3 class="game-title">Space Dodger</h3>
+                                <p class="game-description">Conquer the space</p>
+                                <div class="game-stats">
+                                    <span><i class="fas fa-clock"></i>5 min</span>
+                                    <span><i class="fas fa-signal"></i>Easy</span>
+                                </div>
+                                <button class="play-btn" onclick="openGame('spaceDodger')">
+                                    <i class="fas fa-play"></i> Play Now
+                                </button>
+                            </div>
+                        </div>
+                        <div class="game-card" data-game="minesweeper">
+                            <div class="game-card-inner">
+                                <div class="game-icon arcade-icon">
+                                    <i class="fas fa-explosion"></i>
+                                </div>
+                                <h3 class="game-title">Minesweeper</h3>
+                                <p class="game-description">Classic minesweeper</p>
+                                <div class="game-stats">
+                                    <span><i class="fas fa-clock"></i>5 min</span>
+                                    <span><i class="fas fa-signal"></i>Medium</span>
+                                </div>
+                                <button class="play-btn" onclick="openGame('minesweeper')">
+                                    <i class="fas fa-play"></i> Play Now
+                                </button>
+                            </div>
+                        </div>
+                        <div class="game-card" data-game="neonRunner">
+                            <div class="game-card-inner">
+                                <div class="game-icon arcade-icon">
+                                    <i class="fas fa-running"></i>
+                                </div>
+                                <h3 class="game-title">Runner</h3>
+                                <p class="game-description">Tackle all obstacles!</p>
+                                <div class="game-stats">
+                                    <span><i class="fas fa-clock"></i>5 min</span>
+                                    <span><i class="fas fa-signal"></i>Hard</span>
+                                </div>
+                                <button class="play-btn" onclick="openGame('neonRunner')">
+                                    <i class="fas fa-play"></i> Play Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="view" id="favorites-view">
+                <h2 class="section-title">
+                    <i class="fas fa-star"></i> Your Favorites
+                </h2>
+                <div class="favorites-empty">
+                    <i class="fas fa-heart-broken"></i>
+                    <p>No favorites yet. Start playing and mark your favorites!</p>
+                </div>
+            </div>
+
+            <div class="view" id="leaderboard-view">
+                <h2 class="section-title">
+                    <i class="fas fa-trophy"></i> Global Leaderboard
+                </h2>
+                <div class="leaderboard-container">
+                    <div class="leaderboard-item top-1">
+                        <span class="rank">#1</span>
+                        <span class="player-name">ChampionGamer</span>
+                        <span class="score">15,240</span>
+                    </div>
+                    <div class="leaderboard-item top-2">
+                        <span class="rank">#2</span>
+                        <span class="player-name">ProPlayer99</span>
+                        <span class="score">14,890</span>
+                    </div>
+                    <div class="leaderboard-item top-3">
+                        <span class="rank">#3</span>
+                        <span class="player-name">NexusKing</span>
+                        <span class="score">13,560</span>
+                    </div>
+                    <div class="leaderboard-item">
+                        <span class="rank">#4</span>
+                        <span class="player-name">ArcadeMaster</span>
+                        <span class="score">12,340</span>
+                    </div>
+                    <div class="leaderboard-item">
+                        <span class="rank">#5</span>
+                        <span class="player-name">PixelWarrior</span>
+                        <span class="score">11,920</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="game-modal" id="gameModal">
+        <div class="game-modal-content">
+            <div class="game-modal-header">
+                <h2 id="gameModalTitle">Game</h2>
+                <button class="close-btn" onclick="closeGame()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="game-modal-body" id="gameContainer">
+            </div>
+        </div>
+    </div>
+
+    <div class="auth-modal" id="authModal">
+        <div class="auth-modal-content">
+            <button class="close-btn" onclick="closeAuthModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="auth-header">
+                <h2 class="auth-title" id="authTitle">Welcome Back</h2>
+                <p class="auth-subtitle" id="authSubtitle">Login to continue your journey</p>
+            </div>
+
+            <form class="auth-form" id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="loginEmail">
+                        <i class="fas fa-envelope"></i> Email
+                    </label>
+                    <input type="email" id="loginEmail" placeholder="your.email@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">
+                        <i class="fas fa-lock"></i> Password
+                    </label>
+                    <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                </div>
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="rememberMe">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+                <button type="submit" class="auth-submit-btn">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+                <p class="auth-switch">
+                    Don't have an account? 
+                    <a href="#" onclick="switchAuthMode('register'); return false;">Register here</a>
+                </p>
+            </form>
+
+            <form class="auth-form" id="registerForm" style="display: none;" onsubmit="handleRegister(event)">
+                <div class="form-group">
+                    <label for="registerUsername">
+                        <i class="fas fa-user"></i> Username
+                    </label>
+                    <input type="text" id="registerUsername" placeholder="Choose a username" required minlength="3">
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">
+                        <i class="fas fa-envelope"></i> Email
+                    </label>
+                    <input type="email" id="registerEmail" placeholder="your.email@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">
+                        <i class="fas fa-lock"></i> Password
+                    </label>
+                    <input type="password" id="registerPassword" placeholder="Create a password" required minlength="6">
+                </div>
+                <div class="form-group">
+                    <label for="registerConfirmPassword">
+                        <i class="fas fa-lock"></i> Confirm Password
+                    </label>
+                    <input type="password" id="registerConfirmPassword" placeholder="Confirm your password" required>
+                </div>
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="agreeTerms" required>
+                        <span>I agree to the Terms & Conditions</span>
+                    </label>
+                </div>
+                <button type="submit" class="auth-submit-btn">
+                    <i class="fas fa-user-plus"></i> Create Account
+                </button>
+                <p class="auth-switch">
+                    Already have an account? 
+                    <a href="#" onclick="switchAuthMode('login'); return false;">Login here</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/games.js"></script>
+</body>
+</html>
